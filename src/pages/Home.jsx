@@ -29,13 +29,13 @@ const renderItems = () => {
           <div className="mb-40 d-flex justify-between align-center">
             <h1> {searchValue ? `Поиск по запросу: "${searchValue}"` : 'Все кроссовки'}</h1>
             <div className="search-block d-flex">
-              <img src="/img/search.svg" alt="Search"/>
+              <img src="img/search.svg" alt="Search"/>
               <input onChange={onChangeSearchInput} value={searchValue} placeholder="Поиск..."/>  
              {searchValue && (
                 <img className="clear cu-p" 
                   onClick={() => setSearchValue('')} 
                   width={30} 
-                  src="/img/btn-remove.svg" 
+                  src="img/btn-remove.svg" 
                   alt="Clear" 
                 />
              )}

@@ -136,9 +136,9 @@ function App() {
           </div>
         <Header onClickCart={ () => setCardOpened(true)} />
         <Routes>
-            <Route path="/favorites" exact element= { <Favorites />} />
-            <Route path="/orders" exact element= { <Orders />} />
-            <Route path="/" exact element= {
+            <Route path="favorites"  element= { <Favorites />} />
+            <Route path="orders"  element= { <Orders />} />
+            <Route path=""  element= {
               <Home 
                 items={items} 
                 cartItems={cartItems}

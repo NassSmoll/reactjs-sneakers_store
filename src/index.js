@@ -5,15 +5,31 @@ import './index.scss';
 import 'macro-css';
 
 import App from './App';
+import Home from './pages/Home';
+import Favorites from './pages/Favorites';
+import Orders from './pages/Orders';
  
 
 
 
 const router = createBrowserRouter([
   {
-    path: "/*",
+    path: "/",
     element: <App />,
-   
+    children: [
+      {
+        path: "",
+        element: <Home />,
+      },
+      {
+        path: "favorites",
+        element: <Favorites />,
+      },
+      {
+        path: "orders",
+        element: <Orders />
+      },
+    ]
   },
 
 ]);

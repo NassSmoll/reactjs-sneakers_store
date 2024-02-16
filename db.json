@@ -55,12 +55,30 @@
       "imageUrl": "img/sneakers/8.jpg",
       "title": "Мужские кроссовки Blazer Mid Suede",
       "price": 15600
+    },
+    {
+      "id": "7",
+      "imageUrl": "img/sneakers/4.jpg",
+      "title": "Мужские кроссовки Blazer Mid Suede",
+      "price": 15600
     }
   ],
   "favorites": [
     {
       "id": "7",
       "imageUrl": "img/sneakers/4.jpg",
+      "title": "Мужские кроссовки Blazer Mid Suede",
+      "price": 15600
+    },
+    {
+      "id": "3",
+      "imageUrl": "img/sneakers/5.jpg",
+      "title": "Мужские кроссовки Nike Air Max 270",
+      "price": 12999
+    },
+    {
+      "id": "6",
+      "imageUrl": "img/sneakers/8.jpg",
       "title": "Мужские кроссовки Blazer Mid Suede",
       "price": 15600
     }

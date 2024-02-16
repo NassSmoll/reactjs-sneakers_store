@@ -1,19 +1,19 @@
 import React from 'react'; 
 import { Routes, Route } from 'react-router-dom';
 import axios from 'axios';
-import Header from './components/Header';
-import CartDrawer from './components/CartDrawer';
+//import Header from './components/Header';
+//import CartDrawer from './components/CartDrawer';
 import Home from './pages/Home';
 import Favorites from './pages/Favorites';
 import Orders from './pages/Orders';
 import AppContext from './context'; 
-
+import Layout from './components/Layout';
 
 
 function App() {
 
     const [items, setItems] = React.useState([]); /// сохранение состояния списка товаров
-    const [cartOpened, setCardOpened] = React.useState(false);   /// сохранение состояние открытой или закрытой корзины
+   // const [cartOpened, setCardOpened] = React.useState(false);   /// сохранение состояние открытой или закрытой корзины
     const [cartItems, setCartItems] = React.useState([]);   ////  сохранение состояния списка добавленных в корзину товаров 
     const [favoritesItems, setFavorites] = React.useState([]);  // сохранение списка избранных товаров 
     const [searchValue, setSearchValue] = React.useState('');  /// сохранение состояния запроса поиска
@@ -87,15 +87,7 @@ function App() {
       }
     }                                     
  
-  const onRemoveCartItem =  async (id) => {
-    try {
-      setCartItems(prev => prev.filter(item => item.id !== id)); /// очищаем то, что есть в корзине на сайте
-      axios.delete(`http://localhost:3004/cart/${id}`)  //// добаление товаров в БД - передаем объект по ссылке в БД
-    } catch (error) {
-      alert("Не удалось удалить товар из корзины");
-      console.error(error);
-    }
-  }
+  
 
  
   const onChangeSearchInput = (event) => {
@@ -122,23 +114,15 @@ function App() {
         isItemsFavorAdded, 
         onAddToCart, 
         onAddToFavorite, 
-        setCardOpened, 
+       // setCardOpened, 
         setCartItems
       }}>
         <div className="wrapper clear">
-          <div>
-            <CartDrawer 
-            items={cartItems} 
-            onClose={() => setCardOpened(false)} 
-            onRemove={onRemoveCartItem}
-            opened = {cartOpened}
-            /> 
-          </div>
-        <Header onClickCart={ () => setCardOpened(true)} />
-        <Routes>
-            <Route path="favorites"  element= { <Favorites />} />
-            <Route path="orders"  element= { <Orders />} />
-            <Route path=""  element= {
+      <Routes >
+        <Route path="/*" element= { <Layout />} >
+            <Route path="favorites" element= { <Favorites />} />  
+            <Route path="orders" element= { <Orders />} />
+            <Route index element= {
               <Home 
                 items={items} 
                 cartItems={cartItems}
@@ -150,6 +134,7 @@ function App() {
                 onAddToFavorite={onAddToFavorite} 
                 isLoading={isLoading}
               />} />
+              </Route>
         </Routes>  
         </div>
       </AppContext.Provider>

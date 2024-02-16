@@ -136,7 +136,6 @@ function App() {
           </div>
         <Header onClickCart={ () => setCardOpened(true)} />
         <Routes>
-  
             <Route path="favorites"  element= { <Favorites />} />
             <Route path="orders"  element= { <Orders />} />
             <Route path=""  element= {
@@ -151,7 +150,6 @@ function App() {
                 onAddToFavorite={onAddToFavorite} 
                 isLoading={isLoading}
               />} />
-  
         </Routes>  
         </div>
       </AppContext.Provider>
